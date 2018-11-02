@@ -90,19 +90,16 @@ void SPI_B0_Init() {
 
 
 void SPI_Channel_Init(int channel) {
-	switch(channel) {
-		case 1:
+	switch(channel) {		
+		case 1:				// Channel 1
 			SPI_A0_Init();
 			break;
-	
-		case 2:
+		case 2:				// Channel 2
 			SPI_A1_Init();
 			break;
-		
-		case 3:
+		case 3:				// Channel 3
 			SPI_B0_Init();
 			break;
-		
 		default:
 			break;
 	}
@@ -112,13 +109,13 @@ void SPI_Channel_Init(int channel) {
 
 void SPI_Enable_RX_Int(int channel) {
 	switch(channel) {
-		case 1:
+		case 1:					// Channel 1
 			UCA0IE |= UCRXIE;
 			break;
-		case 2:
+		case 2:					// Channel 2
 			UCA1IE |= UCRXIE;
 			break;
-		case 3:
+		case 3:					// Channel 3
 			UCB0IE |= UCRXIE;
 			break;
 		default:
@@ -211,5 +208,14 @@ void SPI_Deselect(unsigned int pin) {
 		// Do nothing
 	} else {									// Port 2
 		P2OUT |= ~pinouts[pin];
+	}
+}
+
+void SPI_Send_Byte(int channel, char data) {
+	switch(channel) {
+		case 1:
+			UCA0TXBUF = data;
+			while(UCA0STATW & UCBUSY);
+		break;
 	}
 }

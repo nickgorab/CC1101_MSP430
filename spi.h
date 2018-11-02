@@ -27,4 +27,10 @@ void SPI_Disable_TX_Int(int channel);
 void SPI_Select(unsigned int pin);
 void SPI_Deselect(unsigned int pin);
 
+void SPI_Send_Byte(int channel, char data);
+void SPI_Send_Seq(int channel, char* data, int length);
+
+void SPI_Read_Byte(int channel, char* reply);
+void SPI_Read_Seq(int channel, char* reply);
+
 #endif /* SPI_H */
