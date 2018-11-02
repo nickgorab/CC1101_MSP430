@@ -8,3 +8,23 @@
  *        Board:  MSP430FR2433
  *
  */
+
+#ifndef SPI_H
+#define SPI_H
+
+#include <msp430.h>
+
+void SPI_A0_Init();
+void SPI_A1_Init();
+void SPI_B0_Init();
+void SPI_Channel_Init(int channel);
+
+void SPI_Enable_RX_Int(int channel);
+void SPI_Enable_TX_Int(int channel);
+void SPI_Disable_RX_Int(int channel);
+void SPI_Disable_TX_Int(int channel);
+
+void SPI_Select(unsigned int pin);
+void SPI_Deselect(unsigned int pin);
+
+#endif /* SPI_H */
