@@ -8,9 +8,11 @@
  *        Board:  MSP430FR2433
  *
  */
-struct {
 
-}
+struct {
+	char rx_data[DATA_BUFFER_SIZE];
+	char tx_data[DATA_BUFFER_SIZE];
+} uart_data[2]
 
 void UART_A0_Init(int baud, int FCPU) {
 	P1SEL0 |= BIT4 | BIT5;
@@ -51,9 +53,13 @@ void UART_Init(int channel, int baud, int FCPU) {
 	switch(channel) {
 		case 1:
 			UART_A0_Init(baud, FCPU);
+			uart_data[0].rx_data = &rx0;
+			uart_data[0].tx_data = &tx0;
 			break;
 		case 2:
 			UART_A1_Init(baud, FCPU);
+			uart_data[1].rx_data = &rx1;
+			uart_data[1].tx_data = &tx1;
 			break;
 		default:
 			break;
