@@ -179,7 +179,7 @@ void SPI_Select(unsigned int pin) {
 
 	char pinouts[] = {8, 8, 4, 5, 6, 7, 0, 1,	// Array of pin numbers
 	 				  2, 3, 2, 0, 3, 1, 4, 5, 
-	 				  6, 8, 7, 2, 0, 1, 8, 8}
+	 				  6, 8, 7, 2, 0, 1, 8, 8};
 
 	if(pin < 11) {								// Port 1
 		P1OUT |= pinouts[pin];
@@ -198,7 +198,7 @@ void SPI_Deselect(unsigned int pin) {
 
 	char pinouts[] = {8, 8, 4, 5, 6, 7, 0, 1,	// Array of pin numbers
 	 				  2, 3, 2, 0, 3, 1, 4, 5, 
-	 				  6, 8, 7, 2, 0, 1, 8, 8}
+	 				  6, 8, 7, 2, 0, 1, 8, 8};
 
 	if(pin < 11) {								// Port 1
 		P1OUT &= ~pinouts[pin];

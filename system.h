@@ -9,10 +9,12 @@
  *
  */
 
-#ifndef SYSTEM_H
-#define SYSTEM_H
+#ifndef SYSTEM_H_
+#define SYSTEM_H_
 
 #include <msp430.h>
 #include <stdint.h>
 
-#define FCPU
+#define FCPU 1000000
+
+#endif /* SYSTEM_H_ */

@@ -11,9 +11,4 @@
 
 
 
-void CC1101_Cmd_Strobe(char cmd){
-	SPI_Select_CC1101();
-	SPI_Send_Byte(cmd);
-	SPI_Deselect_CC1101();
-}
 
