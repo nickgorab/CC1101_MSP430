@@ -22,3 +22,5 @@ void UART_Enable_R3X_Int(int channel);
 void UART_Disable_RX_Int(int channel);
 void UART_Disable_TX_Int(int channel);
 
+void UART_Send_Byte(int channel, char data);
+void UART_Send_Seq(int channel, char* data, int length);

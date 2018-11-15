@@ -34,3 +34,4 @@ void SPI_Read_Byte(int channel, char* reply);
 void SPI_Read_Seq(int channel, char* reply);
 
 #endif /* SPI_H */
+

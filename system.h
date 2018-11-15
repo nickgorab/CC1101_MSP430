@@ -14,6 +14,9 @@
 
 #include <msp430.h>
 #include <stdint.h>
+#include "spi.h"
+#include "uart.h"
+#include "cc1101.h"
 
 #define FCPU 1000000
 

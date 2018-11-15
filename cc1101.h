@@ -19,7 +19,7 @@ enum CFREQ {
 	CFREQ_433,
 	CFREQ_918,
 	CFREQ_LAST
-}
+};
 
 /* RF States */
 enum RFSTATE
@@ -28,6 +28,10 @@ enum RFSTATE
   RFSTATE_RX,
   RFSTATE_TX
 };
+
+/* Pin Definition */
+#define CC1101_PIN 0x06
+
 
 /* Working Modes */
 #define MODE_LOW_SPEED  0x01  // RF speed = 4800 bps (default is 38 Kbps)
@@ -186,3 +190,5 @@ enum RFSTATE
 #define CC1101_DEFVAL_TEST2      0x81        // Various Test Settings
 #define CC1101_DEFVAL_TEST1      0x35        // Various Test Settings
 #define CC1101_DEFVAL_TEST0      0x09        // Various Test Settings
+
+#endif /* CC1101_H_ */

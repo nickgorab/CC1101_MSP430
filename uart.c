@@ -120,6 +120,30 @@ void UART_Disable_TX_Int(int channel) {
 	}
 }
 
+void UART_Send_Byte(int channel, char data) {
+    switch(channel) {
+    case 1:                             // A0
+   //     while(!(UCA0IFG & UCTXIFG));    // Waits for TX buff. to be ready
+        UCA0TXBUF = data;               // Writes data to TX buffer
+        while(UCA0STATW & UCBUSY);       // Waits for TX buffer to be clear
+        break;
+    case 2:                             // A1
+        while(!(UCA1IFG & UCTXIFG));    // Waits for TX buff. to be ready
+        UCA1TXBUF = data;               // Writes data to TX buffer
+        while(UCA1STATW & UCBUSY);       // Waits for TX buffer to be clear
+        break;
+    case 3:                             // B0
+        while(!(UCB0IFG & UCTXIFG));    // Waits for TX buff. to be ready
+        UCB0TXBUF = data;               // Writes data to TX buffer
+        while(UCB0STAT & UCBUSY);       // Waits for TX buffer to be clear
+        break;
+    }
+}
+
+
+void UART_Send_Seq(int channel, char* data, int length){
+
+}
 
 
 
